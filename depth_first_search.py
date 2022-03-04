@@ -22,12 +22,13 @@ class DepthFirstSearchSolver:
         print(f"Path: {' -> '.join(self.path)}")
 
     def do_traversal(self, graph: SimpleGraph, current_node):
-        self.visit(current_node)
         neighbors = graph[current_node]
         
         for neighborhood in neighbors:
             if not self.visited.get(neighborhood):
                 self.do_traversal(graph, neighborhood)
+                
+        self.visit(current_node)
                 
 
 DepthFirstSearchSolver().do_traversal(graph, 'A')
