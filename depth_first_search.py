@@ -47,4 +47,4 @@ print('\n Preorder:')
 DepthFirstSearchSolver().do_traversal_with_preorder(graph, 'A')
 
 print('\n Postorder:')
-DepthFirstSearchSolver().do_traversal_with_postorder(graph, 'B')
+DepthFirstSearchSolver().do_traversal_with_postorder(graph, 'E')
