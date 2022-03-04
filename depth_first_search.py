@@ -1,8 +1,6 @@
-from typing import Dict
+from custom_types import SimpleGraph
 
-
-GraphType = Dict[str, list[str]]
-graph: GraphType = {
+graph: SimpleGraph = {
     'A': ['B', 'C'],
     'B': ['C', 'A', 'D', 'E'],
     'C': ['D', 'A', 'K', 'B'],
@@ -19,9 +17,9 @@ class DepthFirstSearchSolver:
 
     def visit(self, node):
         self.path.append(node)
-        print(f'Visit: {node}')
+        print(f"Path: {' -> '.join(self.path)}")
 
-    def do_traversal(self, graph: GraphType, current_node):
+    def do_traversal(self, graph: SimpleGraph, current_node):
         self.visit(current_node)
         self.visited[current_node] = True
         neighbors = graph[current_node]
@@ -30,7 +28,5 @@ class DepthFirstSearchSolver:
             if not self.visited.get(neighborhood):
                 self.do_traversal(graph, neighborhood)
                 
-        print(f'Path: {self.path}')
-
 
 DepthFirstSearchSolver().do_traversal(graph, 'A')
